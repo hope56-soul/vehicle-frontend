@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Security App</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#2563eb">
+
+</head>
+<body>
+
+  <header>
+    <h1>🛡️ Security App</h1>
+    <p>Employee Vehicle Management</p>
+  </header>
+
+  <main>
+
+    <button id="addBtn">➕ Add Vehicle</button>
+
+
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search by Employee ID, Name, Vehicle No..."
+    />
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Emp ID</th>
+            <th>Name</th>
+            <th>Vehicle No</th>
+            <th>Sticker</th>
+            <th>Type</th>
+            <th>Contact</th>
+            <th>Ext</th>
+            <th>Remarks</th>
+            <th>Action</th>
+
+          </tr>
+        </thead>
+        <tbody id="vehicleTable">
+          <tr><td colspan="8">Loading...</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pagination">
+      <button id="prevBtn">◀ Prev</button>
+      <span id="pageInfo"></span>
+      <button id="nextBtn">Next ▶</button>
+    </div>
+
+  </main>
+
+<div id="modal" class="modal hidden">
+  <div class="modal-content">
+    <h2 id="modalTitle">Add Vehicle</h2>
+
+    <input type="hidden" id="vehicleId" />
+
+    <input id="employee_id" placeholder="Employee ID *" />
+    <small class="error" id="err_employee_id"></small>
+    <input id="employee_name" placeholder="Employee Name *" />
+    <small class="error" id="err_employee_name"></small>
+    <input id="vehicle_no" placeholder="Vehicle No *" />
+    <small class="error" id="err_vehicle_no"></small>
+    <input id="parking_sticker_no" placeholder="Parking Sticker No" />
+    <small class="error" id="err_parking_sticker_no"></small>
+    <select id="vehicle_type">
+      <option value="">Select Vehicle Type</option>
+      <option value="Bike">Bike</option>
+      <option value="Car">Car</option>
+    </select>
+    <small class="error" id="err_vehicle_type"></small>
+    <input id="contact_no" placeholder="Contact No *" />
+    <small class="error" id="err_contact_no"></small>
+    <input id="extension_no" placeholder="Extension No" />
+    <input id="remarks" placeholder="Remarks" />
+
+    <input id="pin" type="password" placeholder="Authorization PIN *" />
+    <small class="error" id="err_pin"></small>
+
+    <div class="modal-actions">
+      <button id="saveBtn">Save</button>
+      <button id="closeBtn">Cancel</button>
+    </div>
+  </div>
+</div>
+
+
+
+  <script src="app.js"></script>
+  <script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js')
+}
+</script>
+
+</body>
+</html>
