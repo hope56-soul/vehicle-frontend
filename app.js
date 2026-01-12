@@ -1,4 +1,5 @@
-const API_BASE = 'http://127.0.0.1:8787/api'
+//const API_BASE = 'http://127.0.0.1:8787/api'
+const API_BASE = 'https://my-api.arsolutions.workers.dev/api'
 
 const tableBody = document.getElementById('vehicleTable')
 const searchInput = document.getElementById('searchInput')
