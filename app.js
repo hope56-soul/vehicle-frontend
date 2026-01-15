@@ -142,10 +142,13 @@ function validateForm() {
     return false
   }
 
-  // Capitalize first letter
-  employee_name.value =
-    employee_name.value.charAt(0).toUpperCase() +
-    employee_name.value.slice(1).toLowerCase()
+// Capitalize first letter of every word
+employee_name.value = employee_name.value
+  .trim()
+  .toLowerCase()
+  .split(/\s+/)
+  .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+  .join(' ')
 
   // Vehicle No
   if (vehicle_no.value === '') {
